@@ -1,0 +1,28 @@
+{
+    "speakers": [
+      { 
+        "id": 1, "name": "Daniel Hardman", "category": "lawyer", "image": "/assets/imgs/business-man.jpg" 
+    },
+    {
+      "id": 2, "name": "Olga Russeti", "category": "cheerleader", "image": "/assets/imgs/cheerleader.jpg" 
+    }, 
+    {
+      "id": 3, "name": "Scott Person & Sin Song Sang", "category": "TRAVELERS", "image": "/assets/imgs/couple-traveling.jpg" 
+    },
+    {
+      "id": 4, "name": "Rachel Zane", "category": "Photographer", "image": "/assets/imgs/traveling.jpg" 
+    },
+    {
+      "id": 5, "name": "Olivia Darby", "category": "Business woman", "image": "/assets/imgs/woman.jpg" 
+
+    },
+    { 
+      "id": 6, "name": "William Henry", "category": "Business man", "image": "/assets/imgs/man.jpg" 
+    } 
+
+    ],
+    "speeches": [
+      { "id": 1, "speaker-name": "some comment", "category": "photography" }
+    ],
+    "testimonials": { "name": "typicode" }
+  }

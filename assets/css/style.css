@@ -1,0 +1,167 @@
+body {
+    margin: 0;
+}
+.text-pink {
+    color: #df42b1 !important;
+}
+
+header .banner {
+    background-image: url("/assets/imgs/banner.jpg");
+    background-size: cover;
+    background-position: bottom;
+    height: 800px;
+    
+}
+
+header .navbar { 
+    font-size: 20px;
+    
+}
+header .sticky {
+    height: 80px !important;
+}
+
+
+
+header .myshadow {
+    background-color: rgba(0, 0, 0, 0.9);
+    position: sticky;
+    top: 0;
+    height: 100px;
+    
+}
+
+header .nav-link {
+    color: #fff;
+}
+header .nav-link:hover {
+    color: #5a5d89 !important;
+}
+
+
+header .banner-text {
+    font-size: 40px;
+}
+
+main .speakers-banner {
+    background-image: url(/assets/imgs/banner-speakers.jpg);
+    background: #c63fa4;
+    background-image: -webkit-linear-gradient(120deg, #df42b1 0%, #505add 100%);
+    opacity: 0.9;
+    color: white;
+}
+main .speakers-imgs {
+    width: 100%;
+    height: 372px;
+    object-fit: cover;
+} 
+
+main .william-image {
+    object-fit: cover;
+    object-position: top;
+
+}
+
+main .speaker-image-container {
+    position: relative;
+}
+
+main .speaker-description {
+    position: absolute;
+    bottom: 0;
+    font-size: 20px;
+    background-image: -webkit-linear-gradient(200deg, #0000006e 50%, #00000075 50%);
+    padding: 3px 5px;
+}
+main .speaker-description p {
+    margin: 0;
+}
+
+main .schedule {
+    background-color: #151853;
+}
+
+
+main .cards {
+    color: #ffffff37;
+    background-color: #1f2371;
+    border-radius: 10px;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+main .day-card {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    padding: 20px;
+    min-width: 230px;
+    cursor: pointer;
+}
+
+
+@media (min-width: 200px) {
+     main .active {
+    background-color: #5d5e8d;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}  }
+@media (min-width: 992px) { 
+   
+main .cards .left-container {
+    border-radius: 0px 10px 10px 0px;
+}
+main .cards .right-container {
+    border-radius: 10px 0px 0px 10px;
+}
+}
+
+
+main .conference-imgs {
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+}
+
+
+main .conferences-card {
+    border: 2px solid #fff;
+    border-radius: 10px;
+}
+
+
+main .conferences-card:hover {
+    border: 2px solid #df42b1;
+    border-radius: 10px;
+}
+
+main .conference-btn {
+    height: 46px;
+    line-height: 46px;
+    font-weight: 500;
+    border: solid 1px #fff;
+    display: inline-block;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    border-radius: 23px;   
+    cursor: pointer;
+}
+
+main .conference-btn:hover {
+    background-color: #ffffff6e;
+}
+
+
+footer  .footer-container {
+    background-color: #111343;
+    color: #fff;
+}
+
+footer .icons-footer {
+    font-size: 30px;
+}
