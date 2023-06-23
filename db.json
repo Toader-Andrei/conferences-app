@@ -7,22 +7,87 @@
       "id": 2, "name": "Olga Russeti", "category": "cheerleader", "image": "/assets/imgs/cheerleader.jpg" 
     }, 
     {
-      "id": 3, "name": "Scott Person & Sin Song Sang", "category": "TRAVELERS", "image": "/assets/imgs/couple-traveling.jpg" 
+      "id": 3, "name": "Scott Person & Sin Song Sang", "category": "travelers", "image": "/assets/imgs/couple-traveling.jpg" 
     },
     {
       "id": 4, "name": "Rachel Zane", "category": "Photographer", "image": "/assets/imgs/traveling.jpg" 
     },
     {
       "id": 5, "name": "Olivia Darby", "category": "Business woman", "image": "/assets/imgs/woman.jpg" 
-
     },
     { 
-      "id": 6, "name": "William Henry", "category": "Business man", "image": "/assets/imgs/man.jpg" 
+      "id": 6, "name": "William Henry", "category": "Business man", "image": "/assets/imgs/man.jpg"
     } 
 
     ],
     "speeches": [
-      { "id": 1, "speaker-name": "some comment", "category": "photography" }
+      { 
+        "id": 1, 
+        "speakerName": "Daniel Hardman", 
+        "category": "lawyer" , 
+        "title": "Dealing with documents", 
+        "owner": "Person Hardman Specter", 
+        "date": "28 July 2023", 
+        "location": "Cluj Arena, Cluj-Napoca, Romania",
+        "image": "assets/imgs/10.jpg"},
+      {
+        "id": 2,
+        "speakerName": "Olga Russeti", 
+        "category": "cheerleader" , 
+        "title": "Dealing with popularity in high school", 
+        "owner": "Groups Harvard Cheerleading Team", 
+        "date": "28 July 2023", 
+        "location": "Multipurpose Hall, Iasi, Romania",
+        "image": "assets/imgs/11.jpg"
+      },
+      {
+        "id": 3,
+        "speakerName": "Scott Person & Sin Song Sang", 
+        "category": "travelers" , 
+        "title": "Dealing with couple quarrels", 
+        "owner": "Travellers", 
+        "date": "29 July 2023", 
+        "location": "Cinema Florin Piersin, Cluj-Napoca, Romania",
+        "image": "assets/imgs/12.jpg"
+      },
+      {
+        "id": 4,
+        "speakerName": "Rachel Zane", 
+        "category": "photography" , 
+        "title": "Dealing with copyrights", 
+        "owner": "unsplash", 
+        "date": "29 July 2023", 
+        "location": "National Stadium, Bucuresti, Romania",
+        "image": "assets/imgs/13.jpg"
+      },
+      {
+        "id": 5,
+        "speakerName": "Olivia Darby", 
+        "category": "Business woman" , 
+        "title": "Dealing with stereotypical assumptions", 
+        "owner": "USA Bank", 
+        "date": "30 July 2023", 
+        "location": "Cinema Florin Piersin, Cluj-Napoca, Romania",
+        "image": "assets/imgs/10.jpg"
+      },
+      {
+        "id": 6,
+        "speakerName": "William Henry", 
+        "category": "Business man" , 
+        "title": "Dealing with mercenaries", 
+        "owner": "Nike", 
+        "date": "30 July 2023", 
+        "location": "National Stadium, Bucuresti, Romania",
+        "image": "assets/imgs/11.jpg"
+      }
     ],
-    "testimonials": { "name": "typicode" }
+    "testimonials": [
+      {
+      "id": "1",
+      "name": "/..",
+      "speakerId": "1",
+      "text": "lorem"
+      }
+    ] 
   }
+  

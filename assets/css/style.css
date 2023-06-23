@@ -1,8 +1,14 @@
+html {
+    scroll-behavior: smooth;
+   }
 body {
     margin: 0;
 }
 .text-pink {
     color: #df42b1 !important;
+}
+.cursor-pointer {
+    cursor: pointer;
 }
 
 header .banner {
@@ -17,6 +23,7 @@ header .navbar {
     font-size: 20px;
     
 }
+
 header .sticky {
     height: 80px !important;
 }
@@ -34,6 +41,7 @@ header .myshadow {
 header .nav-link {
     color: #fff;
 }
+
 header .nav-link:hover {
     color: #5a5d89 !important;
 }
@@ -41,6 +49,56 @@ header .nav-link:hover {
 
 header .banner-text {
     font-size: 40px;
+}
+
+header .headings {
+    background-image: -webkit-linear-gradient(120deg, #81808000 , #a3a3a3 100%);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+header .heading-upperline {
+    background-color: #c63fa4;
+    height: 4px;
+    margin-bottom: 10px;
+    width: 120px
+}
+
+header .conference-btn {
+    height: 46px;
+    line-height: 46px;
+    font-weight: 500;
+    border: solid 1px #c63fa4;
+    display: inline-block;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    background-image: -webkit-linear-gradient(120deg, #81808000 , #a3a3a3 100%);
+    border-radius: 23px;   
+    cursor: pointer;
+}
+
+header .conference-btn:hover {
+    height: 46px;
+    line-height: 46px;
+    font-weight: 500;
+    border: solid 1px #c63f3f;
+    display: inline-block;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    background-image: -webkit-linear-gradient(120deg, #81808000 100%);
+    border-radius: 23px;   
+    cursor: pointer;
+}
+
+header  .conference-btn a {
+    text-decoration: none;
+  color: black;
 }
 
 main .speakers-banner {
@@ -64,6 +122,12 @@ main .william-image {
 
 main .speaker-image-container {
     position: relative;
+    transition: 1s;
+}
+
+main .speaker-image-container:hover {
+    position: relative;
+    transform: scale(1.04);
 }
 
 main .speaker-description {
@@ -73,12 +137,14 @@ main .speaker-description {
     background-image: -webkit-linear-gradient(200deg, #0000006e 50%, #00000075 50%);
     padding: 3px 5px;
 }
+
 main .speaker-description p {
     margin: 0;
 }
 
 main .schedule {
     background-color: #151853;
+    min-height: 740px;
 }
 
 
@@ -108,15 +174,15 @@ main .day-card {
     display: flex;
     flex-direction: column;
     align-self: center;
-}  }
+    }  
+}
 @media (min-width: 992px) { 
-   
-main .cards .left-container {
+    main .cards .left-container {
     border-radius: 0px 10px 10px 0px;
-}
-main .cards .right-container {
+    }
+    main .cards .right-container {
     border-radius: 10px 0px 0px 10px;
-}
+    }
 }
 
 
@@ -130,6 +196,7 @@ main .conference-imgs {
 main .conferences-card {
     border: 2px solid #fff;
     border-radius: 10px;
+    min-height: 157px;
 }
 
 
