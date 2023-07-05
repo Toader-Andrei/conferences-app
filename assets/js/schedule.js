@@ -1,11 +1,3 @@
-fetch("http://localhost:3000/speakers")
-  .then((response) => response.json())
-  .then((user) => {
-    user.forEach((speaker) => {
-      createSpeakerCard(speaker);
-    });
-  });
-
 // When the user scrolls the page, execute myFunction
 window.onscroll = function () {
   myFunction();
@@ -53,19 +45,19 @@ window.addEventListener("DOMContentLoaded", (e) => {
     .then((response) => response.json())
     .then((speech) => {
       speech.forEach((event) => {
-        createSpeechCard(event);
+        createSpeechesCard(event);
       });
     });
   const monday = document.querySelector(".right-container");
   monday.addEventListener("click", (event) => {
     const speeches = document.querySelector(".speeches-container");
-    speeches.innerHTML = "";
+    speeches.innerText = "";
     event.preventDefault();
     fetch("http://localhost:3000/speeches?date=" + "28 July 2023")
       .then((response) => response.json())
       .then((speech) => {
         speech.forEach((event) => {
-          createSpeechCard(event);
+          createSpeechesCard(event);
         });
       });
   });
@@ -73,12 +65,12 @@ window.addEventListener("DOMContentLoaded", (e) => {
 const tueday = document.querySelector(".middle-container");
 tueday.addEventListener("click", () => {
   const speeches = document.querySelector(".speeches-container");
-  speeches.innerHTML = "";
+  speeches.innerText = "";
   fetch("http://localhost:3000/speeches?date=" + "29 July 2023")
     .then((response) => response.json())
     .then((speech) => {
       speech.forEach((event) => {
-        createSpeechCard(event);
+        createSpeechesCard(event);
       });
     });
 });
@@ -86,18 +78,18 @@ tueday.addEventListener("click", () => {
 const wednesday = document.querySelector(".left-container");
 wednesday.addEventListener("click", () => {
   const speeches = document.querySelector(".speeches-container");
-  speeches.innerHTML = "";
+  speeches.innerText = "";
   fetch("http://localhost:3000/speeches?date=" + "30 July 2023")
     .then((response) => response.json())
     .then((speech) => {
       speech.forEach((event) => {
-        createSpeechCard(event);
+        createSpeechesCard(event);
       });
     });
 });
 
 // adding speeches
-function createSpeechCard(speech) {
+function createSpeechesCard(speech) {
   const scheduleContainer = document.querySelector(".speeches-container");
 
   const speechContainer = document.createElement("div");
@@ -177,19 +169,19 @@ function createSpeechCard(speech) {
     "class",
     "conference-btn col-sm-4 col-lg-4 col-xl-2 mt-2 mt-md-1 mt-lg-0"
   );
-  // collapse
+
   const speechBtn = document.createElement("button");
   speechBtn.setAttribute("class", "btn btn-primary collapsed");
   speechBtn.setAttribute("type", "button");
   speechBtn.setAttribute("data-bs-toggle", "collapse");
-  speechBtn.setAttribute("data-bs-target", "#collapseExample-" + speech.id);
+  speechBtn.setAttribute("data-bs-target", "#collapseExample");
   speechBtn.setAttribute("aria-expended", "false");
   speechBtn.setAttribute("aria-controls", "collapseExample");
   speechBtn.innerText = "Participate";
 
   const formContainer = document.createElement("div");
   formContainer.setAttribute("class", "mt-3 collapse");
-  formContainer.setAttribute("id", "collapseExample-" + speech.id);
+  formContainer.setAttribute("id", "collapseExample");
 
   const form = document.createElement("div");
   form.setAttribute("class", "row g-3 form card card-body");
@@ -253,107 +245,4 @@ function createSpeechCard(speech) {
   speechContainer.appendChild(speechCard);
 
   scheduleContainer.appendChild(speechContainer);
-}
-
-//adding speaker's id on image
-function createSpeakerCard(speaker) {
-  const speakersRow = document.querySelector(".speakers-row");
-
-  const speakerContainer = document.createElement("div");
-  speakerContainer.setAttribute(
-    "class",
-    "col-12 col-md-4 mb-4 mt-sm-4 mt-md-0"
-  );
-
-  const speakerImageDescriptionContainer = document.createElement("div");
-  speakerImageDescriptionContainer.setAttribute(
-    "class",
-    "speaker-image-container"
-  );
-  speakerImageDescriptionContainer.setAttribute("speaker-id", speaker.id);
-
-  const speakerLink = document.createElement("a");
-  speakerLink.setAttribute("href", "speaker.html");
-
-  const speakerImage = document.createElement("img");
-  speakerImage.setAttribute("class", "speakers-imgs cursor-pointer");
-  speakerImage.setAttribute("src", speaker.image);
-  speakerImage.setAttribute("alt", speaker.category);
-  speakerImage.addEventListener("click", () => {
-    localStorage.setItem("speakerId", JSON.stringify(speaker.id));
-  });
-
-  speakerLink.appendChild(speakerImage);
-
-  speakerImageDescriptionContainer.appendChild(speakerLink);
-
-  const speakerNameCategoryContainer = document.createElement("div");
-  speakerNameCategoryContainer.setAttribute("class", "speaker-description");
-
-  speakerImageDescriptionContainer.appendChild(speakerNameCategoryContainer);
-
-  const speakerName = document.createElement("p");
-  speakerName.setAttribute("class", "text-uppercase");
-  speakerName.innerText = speaker.name;
-
-  const speakerCategory = document.createElement("p");
-  speakerCategory.setAttribute("class", "text-uppercase text-pink");
-  speakerCategory.innerText = speaker.category;
-
-  speakerNameCategoryContainer.appendChild(speakerName);
-  speakerNameCategoryContainer.appendChild(speakerCategory);
-
-  speakerContainer.appendChild(speakerImageDescriptionContainer);
-
-  speakersRow.appendChild(speakerContainer);
-}
-function createForm(e) {
-  const speechRow = document.querySelector(".card-row");
-
-  const formContainer = document.createElement("div");
-  formContainer.setAttribute("class", "mt-3 collapse");
-  formContainer.setAttribute("id", "collapseExample");
-
-  const form = document.createElement("div");
-  form.setAttribute("class", "row g-3 form card card-body");
-
-  const formFirstNameContainer = document.createElement("div");
-  formFirstNameContainer.setAttribute("class", "col-md-6");
-
-  const firstNameInput = document.createElement("input");
-  firstNameInput.setAttribute("type", "text");
-  firstNameInput.setAttribute("class", "form-control");
-  firstNameInput.setAttribute("placeholder", "First name");
-  firstNameInput.setAttribute("aria-label", "First name");
-
-  formFirstNameContainer.appendChild(firstNameInput);
-
-  const formLastNameContainer = document.createElement("div");
-  formLastNameContainer.setAttribute("class", "col-md-6");
-
-  const firstLastNameInput = document.createElement("input");
-  firstLastNameInput.setAttribute("type", "text");
-  firstLastNameInput.setAttribute("class", "form-control");
-  firstLastNameInput.setAttribute("placeholder", "Last name");
-  firstLastNameInput.setAttribute("aria-label", "Last name");
-
-  formLastNameContainer.appendChild(firstLastNameInput);
-
-  const submitBtnContainer = document.createElement("div");
-  submitBtnContainer.setAttribute("class", "col-12 mb-3");
-
-  const submitBtn = document.createElement("button");
-  submitBtn.innerText = "Submit";
-  submitBtn.setAttribute("type", "button");
-  submitBtn.setAttribute("class", "btn btn-primary");
-
-  submitBtnContainer.appendChild(submitBtn);
-
-  form.appendChild(formFirstNameContainer);
-  form.appendChild(formLastNameContainer);
-  form.appendChild(submitBtnContainer);
-
-  formContainer.appendChild(form);
-
-  speechRow.appendChild(formContainer);
 }
