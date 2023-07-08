@@ -11,22 +11,22 @@ body {
     cursor: pointer;
 }
 
-header .banner {
+.banner {
     background-image: url("/assets/imgs/banner.jpg");
     background-size: cover;
     background-position: bottom;
     height: 800px; 
 }
 
-header .navbar { 
+.navbar { 
     font-size: 20px;
 }
 
-header .sticky {
+.sticky {
     height: 80px !important;
 }
 
-header .myshadow {
+.myshadow {
     background-color: rgba(0, 0, 0, 0.9);
     position: sticky;
     top: 0;
@@ -34,67 +34,26 @@ header .myshadow {
     
 }
 
-header .nav-link {
+.nav-link {
     color: #fff;
 }
 
-header .nav-link:hover {
+.nav-link:hover {
     color: #5a5d89 !important;
 }
 
 
-header .banner-text {
+.banner-text {
     font-size: 40px;
 }
 
-header .headings {
+.headings {
     text-align: center;
     background-image: -webkit-linear-gradient(120deg, #81808094  , #a3a3a3 100%);
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     padding: 20px;
-}
-
-header .heading-upperline {
-    background-color: #c63fa4;
-    height: 4px;
-    margin-bottom: 10px;
-    width: 100%;
-}
-
-header .conference-btn {
-    height: 46px;
-    line-height: 46px;
-    font-weight: 500;
-    border: solid 1px #c63fa4;
-    display: inline-block;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: #ffffff;
-    border-radius: 23px;   
-    cursor: pointer;
-}
-
-header .conference-btn:hover {
-    height: 46px;
-    line-height: 46px;
-    font-weight: 500;
-    border: solid 1px #c63f3f;
-    display: inline-block;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: #ffffff;
-    background-image: -webkit-linear-gradient(120deg, #81808000 100%);
-    border-radius: 23px;   
-    cursor: pointer;
-}
-
-header  .conference-btn a {
-    text-decoration: none;
-    color: black;
 }
 
 .schedule {

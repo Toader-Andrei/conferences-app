@@ -10,53 +10,72 @@
       integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/assets/css/style.css" />
     <link rel="stylesheet" href="/assets/css/speaker.css" />
   </head>
   <body>
-    <header>
-      <section class="banner">
-        <nav class="navbar myshadow">
-          <div class="container justify-content-around">
-            <div class="logo-container mb-sm-5 mb-md-0 align-items-center">
-              <a class="navbar-brand" href="#"
-                ><img src="/assets/imgs/logo.jpg" alt="logo"
-              /></a>
-            </div>
-            <div class="d-flex mt-sm-2 mt-md-0 align-items-center">
-              <a
-                class="nav-link ms-sm-0 ms-md-5"
-                aria-current="page"
-                href="index.html"
-                >Home</a
-              >
-              <a class="nav-link ms-5" href="#">Schedule</a>
+    <div class="banner">
+      <nav class="navbar myshadow">
+        <div class="container justify-content-around">
+          <div class="d-flex align-items-center">
+            <div>
+              <img src="/assets/imgs/logo.jpg" alt="logo" />
             </div>
           </div>
-        </nav>
-        <div class="container mt-5">
-          <div class="row">
-            <div class="col-sm-12 col-md-6 align-self-center">
-              <h1 class="text-uppercase">speaker details</h1>
-              <h2 class="text-uppercase text-pink">
-                <span class="speaker-name"></span>
-                <i class="fa-solid fa-chevron-right"></i>
-                <span class="speaker-category"></span>
-              </h2>
-            </div>
-            <div class="col-sm-12 col-md-6">
-              <img class="speaker-image" alt="" />
-            </div>
-            <div class="col-md-3 d-block d-md-none">
-              <div class="container text-center shadow-sm my-1">
-                <div class="post-author-social-media"></div>
+          <div class="d-flex mt-sm-2 mt-md-0 align-items-center">
+            <a
+              class="nav-link text-pink ms-sm-0 ms-md-5"
+              aria-current="page"
+              href="index.html"
+              >Home</a
+            >
+            <a class="nav-link ms-5" href="schedule.html">Schedule</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container my-5">
+        <div class="row">
+          <div class="col-sm-12 col-md-6 align-self-center">
+            <h1 class="text-uppercase">speaker details</h1>
+            <h2 class="text-uppercase text-pink">
+              <span class="speaker-name"></span>
+              <i class="fa-solid fa-chevron-right"></i>
+              <span class="speaker-category"></span>
+            </h2>
+          </div>
+          <div class="col-sm-12 col-md-6">
+            <img class="speaker-image" alt="" />
+            <div class="d-block d-md-none text-center my-1">
+              <div class="post-author-social-media h2">
+                <div class="d-flex p-3 justify-content-around">
+                  <div>
+                    <a href="#">
+                      <i class="fa-brands fa-facebook"></i>
+                    </a>
+                  </div>
+                  <div>
+                    <a href="#">
+                      <i class="fa-brands fa-instagram"></i>
+                    </a>
+                  </div>
+                  <div>
+                    <a href="#">
+                      <i class="fa-brands fa-tiktok"></i>
+                    </a>
+                  </div>
+                  <div>
+                    <a href="#">
+                      <i class="fa-brands fa-twitter"></i>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
-    </header>
-    <hr class="m-0" />
+      </div>
+    </div>
+
     <main>
       <section class="container speaker my-5">
         <div class="row">
@@ -150,7 +169,30 @@
             <div class="container text-center shadow-sm my-1">
               <div class="post-author-avatar"></div>
               <div class="post-author-content"></div>
-              <div class="post-author-social-media"></div>
+              <div class="post-author-social-media h2">
+                <div class="d-flex p-3 justify-content-around">
+                  <div>
+                    <a href="#">
+                      <i class="fa-brands fa-facebook"></i>
+                    </a>
+                  </div>
+                  <div>
+                    <a href="#">
+                      <i class="fa-brands fa-instagram"></i>
+                    </a>
+                  </div>
+                  <div>
+                    <a href="#">
+                      <i class="fa-brands fa-tiktok"></i>
+                    </a>
+                  </div>
+                  <div>
+                    <a href="#">
+                      <i class="fa-brands fa-twitter"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -195,10 +237,13 @@
                     <i class="fa-regular fa-envelope pe-1"></i>
                     toaderandrei58@gmail.com
                   </p>
-                  <p>
+                  <a
+                    href="https://github.com/Toader-Andrei"
+                    class="link-light link-underline link-underline-opacity-0"
+                  >
                     <i class="fa-solid fa-globe pe-1"></i>
-                    http://127.0.0.1:5500/index.html
-                  </p>
+                    Github
+                  </a>
                 </div>
               </div>
             </div>

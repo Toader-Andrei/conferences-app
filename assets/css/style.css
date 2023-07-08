@@ -11,75 +11,48 @@ body {
     cursor: pointer;
 }
 
-header .banner {
+.banner {
     background-image: url("/assets/imgs/banner.jpg");
     background-size: cover;
     background-position: bottom;
     height: 800px; 
 }
 
-header .navbar { 
+.navbar { 
     font-size: 20px;
 }
 
-header .sticky {
-    height: 80px !important;
-}
-
-header .myshadow {
+.myshadow {
     background-color: rgba(0, 0, 0, 0.9);
     position: sticky;
     top: 0;
-    height: 100px;
-    
+    height: 100px; 
 }
 
-header .nav-link {
+.nav-link {
     color: #fff;
 }
 
-header .nav-link:hover {
+.nav-link:hover {
     color: #5a5d89 !important;
 }
 
-
-header .banner-text {
+.banner-text {
     font-size: 40px;
 }
 
-header .headings {
+.headings {
     text-align: center;
     background-image: -webkit-linear-gradient(120deg, #81808094  , #a3a3a3 100%);
     border-radius: 20px;
-    display: flex;
-    flex-direction: column;
     padding: 20px;
 }
 
-header .heading-upperline {
+.heading-upperline {
     background-color: #c63fa4;
     height: 4px;
     margin-bottom: 10px;
     width: 100%;
-}
-
-header .conference-btn {
-    height: 46px;
-    line-height: 46px;
-    font-weight: 500;
-    border: solid 1px #c63fa4;
-    display: inline-block;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: #ffffff;
-    border-radius: 23px;   
-    cursor: pointer;
-}
-
-header  .conference-btn a {
-    text-decoration: none;
-    color: black;
 }
 
 main .speakers-banner {
@@ -161,10 +134,13 @@ main .conferences-card {
     min-height: 157px;
 }
 
-
 main .conferences-card:hover {
     border: 2px solid #df42b1;
     border-radius: 10px;
+}
+
+main .statement {
+    background-color: #151853;
 }
 
 footer  .footer-container {

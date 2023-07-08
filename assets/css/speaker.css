@@ -1,11 +1,45 @@
-header .banner {
-    background-image: -webkit-linear-gradient(120deg, #81808000 50%, #a3a3a3 50%);
+html {
+    scroll-behavior: smooth;
+   }
+body {
+    margin: 0;
 }
-header .speaker-image {
+.text-pink {
+    color: #df42b1 !important;
+}
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.navbar { 
+    font-size: 20px;
+}
+
+.myshadow {
+    background-color: rgba(0, 0, 0, 0.9);
+    position: sticky;
+    top: 0;
+    height: 100px; 
+}
+
+.nav-link {
+    color: #fff;
+}
+
+.nav-link:hover {
+    color: #5a5d89 !important;
+}
+  
+.speaker-image {
     width: 100%;
     height: 500px;
     object-fit: cover;
     border-radius: 25px;
+}
+
+.banner {
+    background-image: -webkit-linear-gradient(120deg, #81808094  50%, #a3a3a3 50%);
+    padding-bottom: 5px;
 }
 
 main .banner-speaker {
@@ -39,4 +73,13 @@ main .comment-image {
 main .fa-trash:hover {
     color: red;
     cursor: pointer;
+}
+
+footer  .footer-container {
+    background-color: #111343;
+    color: #fff;
+}
+
+footer .icons-footer {
+    font-size: 30px;
 }

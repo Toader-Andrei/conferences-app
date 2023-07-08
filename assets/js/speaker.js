@@ -47,53 +47,6 @@ function createSpeakerPage(speaker) {
   authorContentContainer.appendChild(authorContentCategory);
   authorContentContainer.appendChild(authorContentMindSet);
 
-  const authorContentSocialContainer = document.querySelectorAll(
-    ".post-author-social-media"
-  );
-  console.log(authorContentSocialContainer);
-  const authorContentFacebook = document.createElement("a");
-  authorContentFacebook.setAttribute("href", "#");
-  authorContentFacebook.setAttribute("class", "p-2");
-
-  const facebookIcon = document.createElement("i");
-  facebookIcon.setAttribute("class", "fa-brands fa-facebook");
-
-  authorContentFacebook.appendChild(facebookIcon);
-
-  const authorContentInstagram = document.createElement("a");
-  authorContentInstagram.setAttribute("href", "#");
-  authorContentInstagram.setAttribute("class", "p-2");
-
-  const instagramIcon = document.createElement("i");
-  instagramIcon.setAttribute("class", "fa-brands fa-instagram");
-
-  authorContentInstagram.appendChild(instagramIcon);
-
-  const authorContentTikTok = document.createElement("a");
-  authorContentTikTok.setAttribute("href", "#");
-  authorContentTikTok.setAttribute("class", "p-2");
-
-  const tiktokIcon = document.createElement("i");
-  tiktokIcon.setAttribute("class", "fa-brands fa-tiktok");
-
-  authorContentTikTok.appendChild(tiktokIcon);
-
-  const authorContentTwitter = document.createElement("a");
-  authorContentTwitter.setAttribute("href", "#");
-  authorContentTwitter.setAttribute("class", "p-2");
-
-  const twitterIcon = document.createElement("i");
-  twitterIcon.setAttribute("class", "fa-brands fa-twitter");
-
-  authorContentTwitter.appendChild(twitterIcon);
-
-  authorContentSocialContainer.forEach((e) => {
-    e.appendChild(authorContentFacebook);
-    e.appendChild(authorContentInstagram);
-    e.appendChild(authorContentTikTok);
-    e.appendChild(authorContentTwitter);
-  });
-
   const title = document.querySelector(".title");
   title.innerText = speaker.title;
 

@@ -6,23 +6,6 @@ fetch("http://localhost:3000/speakers")
     });
   });
 
-// When the user scrolls the page, execute myFunction
-window.onscroll = function () {
-  myFunction();
-};
-
-// Get the navbar
-const navbar = document.querySelector(".navbar");
-
-// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
-function myFunction() {
-  if (window.pageYOffset >= 100) {
-    navbar.classList.add("sticky");
-  } else {
-    navbar.classList.remove("sticky");
-  }
-}
-
 //active navbar
 const activeNavbar = document.querySelectorAll(".nav-link");
 activeNavbar.forEach((event) => {
@@ -179,7 +162,7 @@ function createSpeechCard(speech) {
   );
   // collapse
   const speechBtn = document.createElement("button");
-  speechBtn.setAttribute("class", "btn btn-primary collapsed");
+  speechBtn.setAttribute("class", "btn btn-primary collapsed " + speech.id);
   speechBtn.setAttribute("type", "button");
   speechBtn.setAttribute("data-bs-toggle", "collapse");
   speechBtn.setAttribute("data-bs-target", "#collapseExample-" + speech.id);
@@ -192,10 +175,10 @@ function createSpeechCard(speech) {
   formContainer.setAttribute("id", "collapseExample-" + speech.id);
 
   const form = document.createElement("div");
-  form.setAttribute("class", "row g-3 form card card-body");
+  form.setAttribute("class", "row statement border-0");
 
   const formFirstNameContainer = document.createElement("div");
-  formFirstNameContainer.setAttribute("class", "col-md-6");
+  formFirstNameContainer.setAttribute("class", "col-md-5");
 
   const firstNameInput = document.createElement("input");
   firstNameInput.setAttribute("type", "text");
@@ -206,7 +189,7 @@ function createSpeechCard(speech) {
   formFirstNameContainer.appendChild(firstNameInput);
 
   const formLastNameContainer = document.createElement("div");
-  formLastNameContainer.setAttribute("class", "col-md-6");
+  formLastNameContainer.setAttribute("class", "col-md-5");
 
   const firstLastNameInput = document.createElement("input");
   firstLastNameInput.setAttribute("type", "text");
@@ -217,7 +200,7 @@ function createSpeechCard(speech) {
   formLastNameContainer.appendChild(firstLastNameInput);
 
   const submitBtnContainer = document.createElement("div");
-  submitBtnContainer.setAttribute("class", "col-12 mb-3");
+  submitBtnContainer.setAttribute("class", "col-md-2 mb-3");
 
   const submitBtn = document.createElement("button");
   submitBtn.innerText = "Submit";
@@ -226,18 +209,17 @@ function createSpeechCard(speech) {
 
   submitBtnContainer.appendChild(submitBtn);
 
+  submitBtn.addEventListener("click", (e) => {
+    console.log(e.target.speechContainer.querySelector(".collapsed"));
+  });
+
   form.appendChild(formFirstNameContainer);
   form.appendChild(formLastNameContainer);
   form.appendChild(submitBtnContainer);
 
   formContainer.appendChild(form);
 
-  speechRow.appendChild(formContainer);
-
-  const myCollapsible = document.querySelectorAll(".collapsed");
-  myCollapsible.forEach((e) => {
-    // console.log(e.target);
-  });
+  speechCard.appendChild(formContainer);
 
   const speechBtnIcon = document.createElement("i");
   speechBtnIcon.setAttribute("class", "fa-solid fa-arrow-right-long");
@@ -315,7 +297,7 @@ function createForm(e) {
   formContainer.setAttribute("id", "collapseExample");
 
   const form = document.createElement("div");
-  form.setAttribute("class", "row g-3 form card card-body");
+  form.setAttribute("class", "row card-body");
 
   const formFirstNameContainer = document.createElement("div");
   formFirstNameContainer.setAttribute("class", "col-md-6");
