@@ -10,6 +10,9 @@ body {
 .cursor-pointer {
     cursor: pointer;
 }
+.cursor {
+    cursor: context-menu !important;
+}
 
 .banner {
     background-image: url("/assets/imgs/banner.jpg");
@@ -53,6 +56,14 @@ body {
     height: 4px;
     margin-bottom: 10px;
     width: 100%;
+}
+
+nav .avatar {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: not-allowed;
 }
 
 main .speakers-banner {

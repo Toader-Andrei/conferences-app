@@ -13,63 +13,71 @@
     <link rel="stylesheet" href="/assets/css/schedule.css" />
   </head>
   <body>
-    <div class="banner">
-      <nav class="navbar myshadow">
-        <div class="container justify-content-around">
-          <div class="d-flex align-items-center">
-            <div class="navbar-brand">
-              <img src="/assets/imgs/logo.jpg" alt="logo" />
-            </div>
-          </div>
-          <div class="d-flex mt-sm-2 mt-md-0 align-items-center">
-            <a
-              class="nav-link text-pink ms-sm-0 ms-md-5"
-              aria-current="page"
-              href="index.html"
-              >Home</a
-            >
-            <a class="nav-link ms-5" href="schedule.html">Schedule</a>
+    <nav class="navbar myshadow position-relative">
+      <div class="container justify-content-around">
+        <div class="d-flex align-items-center">
+          <div class="navbar-brand">
+            <img src="/assets/imgs/logo.jpg" alt="logo" />
           </div>
         </div>
-      </nav>
-      <div class="container mt-5">
-        <div class="headings">
-          <div class="heading-upperline"></div>
-          <h1>Tedx Romania Conference</h1>
-          <h2 class="text-pink">We are here for your development</h2>
-          <h5>
-            Come with with us and enjoy our journey and you won't regret that!
-          </h5>
+        <div class="d-flex mt-sm-2 mt-md-0 align-items-center">
+          <a
+            class="nav-link ms-sm-0 ms-md-5"
+            aria-current="page"
+            href="index.html"
+            >Home</a
+          >
+          <a class="nav-link ms-5 text-pink" href="schedule.html">Schedule</a>
+        </div>
+        <div class="avatar-container d-none d-sm-block align-items-end">
+          <img src="/assets/imgs/avatar.jpg" alt="avatar" class="avatar" />
+          <a href="login.html">a</a>
+          <a href="register.html">b</a>
         </div>
       </div>
-    </div>
-    <section class="schedule pb-5" id="schedule">
-      <div class="container schedule-container">
-        <div class="text-center mb-5">
-          <div class="pt-5 mb-5">
-            <h6 class="text-uppercase text-pink">our timetable</h6>
-            <h2 class="text-uppercase text-pink">schedule plan</h2>
+    </nav>
+    <main>
+      <section class="banner">
+        <div class="container">
+          <div class="headings">
+            <div class="heading-upperline"></div>
+            <h1>Tedx Romania Conference</h1>
+            <h2 class="text-pink">We are here for your development</h2>
+            <h5>
+              Come with with us and enjoy our journey and you won't regret that!
+            </h5>
           </div>
-          <div class="container">
-            <div class="row cards">
-              <div class="col-sm-12 col-lg-4 day-card active right-container">
-                <h3 class="text-uppercase">monday</h3>
-                <p class="m-0">July 28, 2023</p>
-              </div>
-              <div class="col-sm-12 col-lg-4 day-card middle-container">
-                <h3 class="text-uppercase">tuesday</h3>
-                <p class="m-0">July 29, 2023</p>
-              </div>
-              <div class="col-sm-12 col-lg-4 day-card left-container">
-                <h3 class="text-uppercase">wednesday</h3>
-                <p class="m-0">July 30, 2023</p>
+        </div>
+      </section>
+      <section class="schedule pb-5" id="schedule">
+        <div class="container schedule-container">
+          <div class="text-center mb-5">
+            <div class="pt-5 mb-5">
+              <h6 class="text-uppercase text-pink">our timetable</h6>
+              <h2 class="text-uppercase text-pink">schedule plan</h2>
+            </div>
+            <div class="container">
+              <div class="row cards">
+                <div class="col-sm-12 col-lg-4 day-card active right-container">
+                  <h3 class="text-uppercase">monday</h3>
+                  <p class="m-0">July 28, 2023</p>
+                </div>
+                <div class="col-sm-12 col-lg-4 day-card middle-container">
+                  <h3 class="text-uppercase">tuesday</h3>
+                  <p class="m-0">July 29, 2023</p>
+                </div>
+                <div class="col-sm-12 col-lg-4 day-card left-container">
+                  <h3 class="text-uppercase">wednesday</h3>
+                  <p class="m-0">July 30, 2023</p>
+                </div>
               </div>
             </div>
           </div>
+          <div class="speeches-container"></div>
         </div>
-        <div class="speeches-container"></div>
-      </div>
-    </section>
+      </section>
+    </main>
+
     <footer>
       <section class="footer-container">
         <div class="container">

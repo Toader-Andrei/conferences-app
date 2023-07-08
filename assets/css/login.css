@@ -1,0 +1,29 @@
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+}
+main {
+    height: 100%;
+}
+.text-pink {
+    color: #df42b1 !important;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+main .full-h {
+    height: 100%;
+}
+
+main .avatar {
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+}

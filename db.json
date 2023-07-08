@@ -76,7 +76,8 @@
       "owner": "Person Hardman Specter",
       "date": "28 July 2023",
       "location": "Cluj Arena, Cluj-Napoca, Romania",
-      "image": "assets/imgs/10.jpg"
+      "image": "assets/imgs/10.jpg",
+      "participants": []
     },
     {
       "id": 2,
@@ -86,7 +87,8 @@
       "owner": "Groups Harvard Cheerleading Team",
       "date": "28 July 2023",
       "location": "Multipurpose Hall, Iasi, Romania",
-      "image": "assets/imgs/11.jpg"
+      "image": "assets/imgs/11.jpg",
+      "participants": []
     },
     {
       "id": 3,
@@ -96,7 +98,8 @@
       "owner": "Travellers",
       "date": "29 July 2023",
       "location": "Cinema Florin Piersin, Cluj-Napoca, Romania",
-      "image": "assets/imgs/12.jpg"
+      "image": "assets/imgs/12.jpg",
+      "participants": []
     },
     {
       "id": 4,
@@ -106,7 +109,8 @@
       "owner": "unsplash",
       "date": "29 July 2023",
       "location": "National Stadium, Bucuresti, Romania",
-      "image": "assets/imgs/13.jpg"
+      "image": "assets/imgs/13.jpg",
+      "participants": []
     },
     {
       "id": 5,
@@ -116,7 +120,8 @@
       "owner": "USA Bank",
       "date": "30 July 2023",
       "location": "Cinema Florin Piersin, Cluj-Napoca, Romania",
-      "image": "assets/imgs/10.jpg"
+      "image": "assets/imgs/10.jpg",
+      "participants": []
     },
     {
       "id": 6,
@@ -126,7 +131,8 @@
       "owner": "Nike",
       "date": "30 July 2023",
       "location": "National Stadium, Bucuresti, Romania",
-      "image": "assets/imgs/11.jpg"
+      "image": "assets/imgs/11.jpg",
+      "participants": []
     }
   ],
   "comments": [
@@ -169,6 +175,16 @@
       "postId": 3,
       "time": "07.07.2023",
       "id": "1Brkvss"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "firstName": "A",
+      "lastName": "B",
+      "email": "c",
+      "password": "djsa",
+      "avatar": "assets/imgs/avatar.jpg"
     }
   ]
 }

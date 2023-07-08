@@ -71,7 +71,6 @@ wednesday.addEventListener("click", () => {
     });
 });
 
-// adding speeches
 function createSpeechCard(speech) {
   const scheduleContainer = document.querySelector(".speeches-container");
 
@@ -174,7 +173,7 @@ function createSpeechCard(speech) {
 
   const firstNameInput = document.createElement("input");
   firstNameInput.setAttribute("type", "text");
-  firstNameInput.setAttribute("class", "form-control");
+  firstNameInput.setAttribute("class", "form-control first-name");
   firstNameInput.setAttribute("placeholder", "First name");
   firstNameInput.setAttribute("aria-label", "First name");
 
@@ -183,13 +182,13 @@ function createSpeechCard(speech) {
   const formLastNameContainer = document.createElement("div");
   formLastNameContainer.setAttribute("class", "col-md-5");
 
-  const firstLastNameInput = document.createElement("input");
-  firstLastNameInput.setAttribute("type", "text");
-  firstLastNameInput.setAttribute("class", "form-control");
-  firstLastNameInput.setAttribute("placeholder", "Last name");
-  firstLastNameInput.setAttribute("aria-label", "Last name");
+  const LastNameInput = document.createElement("input");
+  LastNameInput.setAttribute("type", "text");
+  LastNameInput.setAttribute("class", "form-control last-name");
+  LastNameInput.setAttribute("placeholder", "Last name");
+  LastNameInput.setAttribute("aria-label", "Last name");
 
-  formLastNameContainer.appendChild(firstLastNameInput);
+  formLastNameContainer.appendChild(LastNameInput);
 
   const submitBtnContainer = document.createElement("div");
   submitBtnContainer.setAttribute("class", "col-md-2 mb-3");
@@ -197,14 +196,32 @@ function createSpeechCard(speech) {
   const submitBtn = document.createElement("button");
   submitBtn.innerText = "Submit";
   submitBtn.setAttribute("type", "button");
-  submitBtn.setAttribute("class", "btn btn-primary collapsed " + speech.id);
-  submitBtn.setAttribute("type", "button");
+  submitBtn.setAttribute("class", "btn btn-primary collapsed");
   submitBtn.setAttribute("data-bs-toggle", "collapse");
   submitBtn.setAttribute("data-bs-target", "#collapseExample-" + speech.id);
   submitBtn.setAttribute("aria-expended", "false");
   submitBtn.setAttribute("aria-controls", "collapseExample");
 
   submitBtnContainer.appendChild(submitBtn);
+
+  submitBtn.addEventListener("click", () => {
+    const participateBtn = speechBtn;
+    participateBtn.innerText = "Going";
+    speechBtn.removeAttribute("data-bs-toggle");
+    speechBtn.setAttribute("class", "btn btn-primary cursor");
+
+    const firstName = document.querySelector(".first-name").value;
+    const lastName = document.querySelector(".last-name").value;
+    console.log(firstName, lastName);
+
+    const participant = {
+      firstName: firstName,
+      lastName: lastName,
+      speech: speech.id,
+    };
+
+    localStorage.setItem("participant", JSON.stringify(participant));
+  });
 
   form.appendChild(formFirstNameContainer);
   form.appendChild(formLastNameContainer);

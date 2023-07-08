@@ -42,7 +42,6 @@ body {
     color: #5a5d89 !important;
 }
 
-
 .banner-text {
     font-size: 40px;
 }
@@ -54,6 +53,14 @@ body {
     display: flex;
     flex-direction: column;
     padding: 20px;
+}
+
+nav .avatar {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: not-allowed;
 }
 
 .schedule {
