@@ -54,9 +54,9 @@
           </div>
 
           <div
-            class="col-lg-7 d-flex justify-content-center align-items-center my-5"
+            class="p-5 col-lg-7 d-flex justify-content-center align-items-center my-5"
           >
-            <div class="flex-grow-1 container">
+            <div class="flex-grow-1 container p-5">
               <div class="text-center mb-5 mb-md-7">
                 <h1 class="h2">Welcome to TedX Romania</h1>
                 <p class="text-secondary">Fill out the form to get started.</p>
@@ -67,10 +67,34 @@
                   <label class="form-label">Your email</label>
                   <input
                     type="email"
-                    class="form-control form-control-lg"
+                    class="form-control form-control-lg email-value"
                     name="email"
                     placeholder="Your email"
                     aria-label="Your email"
+                    required=""
+                  />
+                </div>
+
+                <div class="mb-4">
+                  <label class="form-label">Your First Name</label>
+                  <input
+                    type="text"
+                    class="form-control form-control-lg firstName-value"
+                    name="firstName"
+                    placeholder="Your First Name"
+                    aria-label="Your First Name"
+                    required=""
+                  />
+                </div>
+
+                <div class="mb-4">
+                  <label class="form-label">Your Last Name</label>
+                  <input
+                    type="text"
+                    class="form-control form-control-lg lastName-value"
+                    name="lastName"
+                    placeholder="Your Last Name"
+                    aria-label="YYour Last Name"
                     required=""
                   />
                 </div>
@@ -86,7 +110,7 @@
                   >
                     <input
                       type="text"
-                      class="js-toggle-password form-control form-control-lg"
+                      class="js-toggle-password form-control form-control-lg password-value"
                       name="password"
                       id="signupModalFormSignupPassword"
                       placeholder="8+ characters required"
@@ -94,31 +118,6 @@
                       required=""
                     />
                   </div>
-                </div>
-
-                <div class="mb-3">
-                  <label class="form-label" for="signupModalFormSignupPassword"
-                    >Password</label
-                  >
-
-                  <div
-                    class="input-group input-group-merge"
-                    data-hs-validation-validate-class=""
-                  >
-                    <input
-                      type="text"
-                      class="js-toggle-password form-control form-control-lg"
-                      name="password"
-                      id="signupModalFormSignupPassword"
-                      placeholder="8+ characters required"
-                      aria-label="8+ characters required"
-                      required=""
-                    />
-                  </div>
-
-                  <span class="invalid-feedback"
-                    >Your password is invalid. Please try again.</span
-                  >
                 </div>
 
                 <div class="form-check mb-3">
@@ -142,7 +141,11 @@
                 </div>
 
                 <div class="d-grid mb-3">
-                  <button type="submit" class="btn btn-primary btn-lg">
+                  <button
+                    type="submit"
+                    class="btn btn-primary btn-lg singUp"
+                    onclick="onRegisterClick(event)"
+                  >
                     Sing up
                   </button>
                 </div>

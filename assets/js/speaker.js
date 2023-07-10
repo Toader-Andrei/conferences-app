@@ -1,3 +1,9 @@
+const user = JSON.parse(localStorage.getItem("user"));
+if (!user) {
+  window.location.href = "login.html";
+}
+console.log(user);
+
 const speakerId = JSON.parse(localStorage.getItem("speakerId"));
 
 fetch("http://localhost:3000/speakers/" + speakerId)
@@ -62,7 +68,6 @@ function createSpeakerPage(speaker) {
   fetch("http://localhost:3000/comments?postId=" + speakerId)
     .then((response) => response.json())
     .then((comments) => {
-      console.log();
       comments.forEach((comment) => {
         createComment(comment);
       });
@@ -93,6 +98,12 @@ function clearForm() {
 }
 
 function createComment(comment) {
+  fetch("http://localhost:3000/users")
+    .then((response) => response.json())
+    .then((json) => {
+      console.log(json);
+      // adding first name and last name
+    });
   const commentSection = document.querySelector(".comments");
 
   const commentContainer = document.createElement("div");
@@ -109,10 +120,7 @@ function createComment(comment) {
   );
 
   const commentImage = document.createElement("img");
-  commentImage.setAttribute(
-    "src",
-    "https://img.freepik.com/premium-photo/gorgeous-female-brunette-model-white-clothes_149155-2130.jpg"
-  );
+  commentImage.setAttribute("src", "assets/imgs/avatar.jpg");
   commentImage.setAttribute("class", "comment-image");
 
   const commentTextContainer = document.createElement("div");
@@ -193,14 +201,11 @@ function createComment(comment) {
 }
 
 const commentsContainer = document.querySelector(".comments");
-console.log(commentsContainer);
 
 const submitBtn = document.querySelector(".submit");
 submitBtn.addEventListener("click", (event) => {
   event.preventDefault();
 
-  const firstName = document.querySelector(".firstName-input").value;
-  const lastName = document.querySelector(".lastName-input").value;
   const comment = document.querySelector(".comments-input").value;
   const date = new Date().toLocaleDateString("ro-RO");
 
@@ -211,7 +216,7 @@ submitBtn.addEventListener("click", (event) => {
 
   const validationsLocation = document.querySelector(".validations");
 
-  if (firstName === "" || lastName === "" || comment === "") {
+  if (comment === "") {
     validationsLocation.appendChild(validation);
     if (validation) {
       const validationMessage = document.querySelector(".validation-message");
@@ -226,8 +231,6 @@ submitBtn.addEventListener("click", (event) => {
     fetch("http://localhost:3000/comments", {
       method: "POST",
       body: JSON.stringify({
-        firstname: firstName,
-        lastname: lastName,
         comment: comment,
         postId: speakerId,
         time: date,

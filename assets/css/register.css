@@ -22,3 +22,7 @@ main {
 main .full-h {
     height: 100%;
 }
+
+main .avatar {
+    width: 100%;
+}

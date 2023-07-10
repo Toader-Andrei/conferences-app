@@ -68,7 +68,7 @@
                   <label class="form-label">Your email</label>
                   <input
                     type="email"
-                    class="form-control form-control-lg"
+                    class="form-control form-control-lg email-value"
                     name="email"
                     placeholder="Your email"
                     aria-label="Your email"
@@ -85,7 +85,7 @@
                   <div class="input-group input-group-merge">
                     <input
                       type="password"
-                      class="form-control form-control-lg"
+                      class="form-control form-control-lg password-value"
                       name="password"
                       id="signupModalFormLoginPassword"
                       placeholder="8+ characters required"
@@ -97,7 +97,11 @@
                 </div>
 
                 <div class="d-grid mb-3">
-                  <button type="submit" class="btn btn-primary btn-lg">
+                  <button
+                    type="submit"
+                    class="btn btn-primary btn-lg"
+                    onclick="onLoginClick(event)"
+                  >
                     Log in
                   </button>
                 </div>
