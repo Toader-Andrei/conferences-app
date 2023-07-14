@@ -5,8 +5,10 @@ function onRegisterClick(event) {
   const email = document.querySelector(".email-value").value;
   const password = document.querySelector(".password-value").value;
 
-  if (true) {
+  if (email) {
+    console.log("ma ce?");
     // validare + fetch de get
+
     fetch("http://localhost:3000/users?email=" + email)
       .then((response) => response.json())
       .then((users) => {

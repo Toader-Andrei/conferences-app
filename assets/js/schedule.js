@@ -4,18 +4,9 @@ window.addEventListener("DOMContentLoaded", (e) => {
     window.location.href = "login.html";
   }
 
-  //active navbar
-  const activeNavbar = document.querySelectorAll(".nav-link");
-  activeNavbar.forEach((event) => {
-    event.addEventListener("click", (e) => {
-      const earlyActiveNavBar = document.querySelector(".text-pink");
-      if (earlyActiveNavBar) {
-        earlyActiveNavBar.classList.remove("text-pink");
-      }
-      e.target.classList.add("text-pink");
-    });
-  });
+  const checkInBtn = document.querySelector(".speechBtn");
 
+  console.log(user);
   //active cards from schedule
   const activeCard = document.querySelectorAll(".day-card");
   activeCard.forEach((event) => {
@@ -24,6 +15,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
       if (earlyActiveCard) {
         earlyActiveCard.classList.remove("active");
       }
+
       event.classList.add("active");
     });
   });
@@ -35,6 +27,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
         createSpeechCard(event);
       });
     });
+
   const monday = document.querySelector(".right-container");
   monday.addEventListener("click", (event) => {
     const speeches = document.querySelector(".speeches-container");
@@ -49,6 +42,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
       });
   });
 });
+
 const tueday = document.querySelector(".middle-container");
 tueday.addEventListener("click", () => {
   const speeches = document.querySelector(".speeches-container");
@@ -76,13 +70,28 @@ wednesday.addEventListener("click", () => {
 });
 
 function createSpeechCard(speech) {
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  fetch("http://localhost:3000/speeches/" + speech.id)
+    .then((response) => response.json())
+    .then((speech) => {
+      if (speech.participants.includes(user.id)) {
+        console.log(">?");
+
+        document
+          .querySelector(".speechBtn")
+          .setAttribute("class", "btn btn-success cursor");
+        const participanting = document.querySelectorAll(".speechBtn");
+      }
+    });
+
   const scheduleContainer = document.querySelector(".speeches-container");
 
   const speechContainer = document.createElement("div");
   speechContainer.setAttribute("class", "conferences-container mb-4");
 
   const speechRow = document.createElement("div");
-  speechRow.setAttribute("class", "row align-items-center pt-4 card-row");
+  speechRow.setAttribute("class", "row align-items-center py-4 card-row");
 
   const speechCard = document.createElement("div");
   speechCard.setAttribute("class", "conferences-card container text-white");
@@ -157,7 +166,10 @@ function createSpeechCard(speech) {
   );
   // collapse
   const speechBtn = document.createElement("button");
-  speechBtn.setAttribute("class", "btn btn-primary collapsed " + speech.id);
+  speechBtn.setAttribute(
+    "class",
+    "btn btn-primary collapsed speechBtn " + speech.id
+  );
   speechBtn.setAttribute("type", "button");
   speechBtn.setAttribute("data-bs-toggle", "collapse");
   speechBtn.setAttribute("data-bs-target", "#collapseExample-" + speech.id);
@@ -170,15 +182,20 @@ function createSpeechCard(speech) {
   formContainer.setAttribute("id", "collapseExample-" + speech.id);
 
   const form = document.createElement("div");
-  form.setAttribute("class", "row statement border-0");
+  form.setAttribute("class", "row statement border-0 text-center");
 
   const submitBtnContainer = document.createElement("div");
-  submitBtnContainer.setAttribute("class", "col-md-2 mb-3");
+  submitBtnContainer.setAttribute("class", "col-12 mb-3");
+
+  const headingSpeech = document.createElement("h5");
+  headingSpeech.innerText = "Are you sure?";
+
+  submitBtnContainer.appendChild(headingSpeech);
 
   const submitBtn = document.createElement("button");
-  submitBtn.innerText = "Participate";
+  submitBtn.innerText = "Yes";
   submitBtn.setAttribute("type", "button");
-  submitBtn.setAttribute("class", "btn btn-primary collapsed");
+  submitBtn.setAttribute("class", "btn btn-primary collapsed me-3");
   submitBtn.setAttribute("data-bs-toggle", "collapse");
   submitBtn.setAttribute("data-bs-target", "#collapseExample-" + speech.id);
   submitBtn.setAttribute("aria-expended", "false");
@@ -186,20 +203,43 @@ function createSpeechCard(speech) {
 
   submitBtnContainer.appendChild(submitBtn);
 
+  const noBtn = document.createElement("button");
+  noBtn.innerText = "No";
+  noBtn.setAttribute("type", "button");
+  noBtn.setAttribute("class", "btn btn-primary collapsed");
+  noBtn.setAttribute("data-bs-toggle", "collapse");
+  noBtn.setAttribute("data-bs-target", "#collapseExample-" + speech.id);
+  noBtn.setAttribute("aria-expended", "false");
+  noBtn.setAttribute("aria-controls", "collapseExample");
+
+  submitBtnContainer.appendChild(noBtn);
+
   submitBtn.addEventListener("click", () => {
     const participateBtn = speechBtn;
     participateBtn.innerText = "Participanting";
     speechBtn.removeAttribute("data-bs-toggle");
-    speechBtn.setAttribute("class", "btn btn-primary cursor");
+    speechBtn.setAttribute("class", "btn btn-success cursor");
 
-    const participant = {
-      // firstName: firstName,
-      // lastName: lastName,
-      // aici e de umblat pentru user
-      speech: speech.id,
-    };
+    const user = JSON.parse(localStorage.getItem("user"));
+    console.log(speech.id, user.id);
 
-    localStorage.setItem("participant", JSON.stringify(participant));
+    fetch("http://localhost:3000/speeches/" + speech.id)
+      .then((response) => response.json())
+      .then(() => {
+        const participants = speech.participants;
+        console.log(participants);
+        participants.push(user.id);
+        if (participants) {
+        } else {
+          fetch("http://localhost:3000/speeches/" + speech.id, {
+            method: "PATCH",
+            body: JSON.stringify({ participants: participants }),
+            headers: {
+              "Content-type": "application/json; charset=UTF-8",
+            },
+          }).then((response) => response.json());
+        }
+      });
   });
 
   form.appendChild(submitBtnContainer);

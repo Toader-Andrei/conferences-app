@@ -10,6 +10,9 @@ body {
 .cursor-pointer {
     cursor: pointer;
 }
+.cursor {
+    cursor: default !important;
+}
 
 .banner {
     background-image: url("/assets/imgs/banner.jpg");
@@ -46,13 +49,18 @@ body {
     font-size: 40px;
 }
 
+.heading-upperline {
+    background-color: #c63fa4;
+    height: 5px;
+    width: 80px;
+}
+
 .headings {
-    text-align: center;
-    background-image: -webkit-linear-gradient(120deg, #81808094  , #a3a3a3 100%);
+    color: white;
     border-radius: 20px;
-    display: flex;
-    flex-direction: column;
     padding: 20px;
+    background-color: #191919;
+    max-width: 740px;
 }
 
 nav .avatar {

@@ -31,12 +31,13 @@ body {
     border-radius: 20px;
     padding: 20px;
     background-color: #191919;
+    max-width: 740px;
 }
 
 .heading-upperline {
     background-color: #c63fa4;
     height: 5px;
-    width: 40%;
+    width: 80px;
 }
 
 nav .avatar {
@@ -156,7 +157,7 @@ footer .icons-footer {
 
 @media (min-width: 500px) {
     main .w-35 {
-        max-width: 40%;
+        max-width: 24%;
     }
 }
 
