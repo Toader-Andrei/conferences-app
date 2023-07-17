@@ -130,6 +130,29 @@ function createSpeechCard(speech) {
 
   speechesDescriptionContainer.appendChild(speechDetails);
 
+  const peopleComming = document.createElement("span");
+  peopleComming.setAttribute("class", "m-1");
+  peopleComming.innerText = speech.participants.length;
+
+  if (speech.participants.length >= 2 && speech.participants.length <= 9) {
+    const warningMessage = document.createElement("h5");
+    warningMessage.innerText =
+      "Hurry up, only a few seats left for this speech!";
+
+    speechCard.appendChild(warningMessage);
+  } else if (speech.participants.length === 10) {
+    const warningMessage = document.createElement("h5");
+    warningMessage.innerText = "Maybe next time!";
+
+    speechCard.appendChild(warningMessage);
+  }
+
+  const iconGroup = document.createElement("i");
+  iconGroup.setAttribute("class", "fa-solid fa-people-group");
+
+  speechesDescriptionContainer.appendChild(iconGroup);
+  speechesDescriptionContainer.appendChild(peopleComming);
+
   const speechDateAndLocationContainer = document.createElement("div");
   speechDateAndLocationContainer.setAttribute(
     "class",
