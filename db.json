@@ -78,7 +78,9 @@
       "location": "Cluj Arena, Cluj-Napoca, Romania",
       "image": "assets/imgs/10.jpg",
       "participants": [
-        1
+        2,
+        1,
+        5
       ]
     },
     {
@@ -91,7 +93,8 @@
       "location": "Multipurpose Hall, Iasi, Romania",
       "image": "assets/imgs/11.jpg",
       "participants": [
-        2
+        2,
+        1
       ]
     },
     {
@@ -104,7 +107,9 @@
       "location": "Cinema Florin Piersin, Cluj-Napoca, Romania",
       "image": "assets/imgs/12.jpg",
       "participants": [
-        1, 2
+        2,
+        1,
+        5
       ]
     },
     {
@@ -129,9 +134,7 @@
       "date": "30 July 2023",
       "location": "Cinema Florin Piersin, Cluj-Napoca, Romania",
       "image": "assets/imgs/10.jpg",
-      "participants": [
-        1
-      ]
+      "participants": []
     },
     {
       "id": 6,
@@ -143,54 +146,65 @@
       "location": "National Stadium, Bucuresti, Romania",
       "image": "assets/imgs/11.jpg",
       "participants": [
-        2, 1
+        2,
+        1
       ]
     }
   ],
   "comments": [
     {
-      "firstname": "s",
-      "lastname": "d",
+      "firstname": "Andrei Stefan",
+      "lastname": "Toader",
       "comment": "a",
       "postId": 4,
       "time": "05.07.2023",
-      "id": "eGkdd0C"
+      "id": "eGkdd0C",
+      "userId": 1
     },
     {
-      "firstname": "ale",
-      "lastname": "alexia maria",
-      "comment": "love this page. i don t speak english veri gud",
-      "postId": 4,
-      "time": "05.07.2023",
-      "id": "sQ8Fe_E"
+      "firstname": "Andrei Stefan",
+      "lastname": "Toader",
+      "comment": "das",
+      "postId": 2,
+      "time": "17.07.2023",
+      "userID": 1,
+      "id": "L46cpSw"
     },
     {
-      "firstname": "s",
-      "lastname": "d",
-      "comment": "as",
-      "postId": 3,
-      "time": "07.07.2023",
-      "id": "pUH2bSt"
-    },
-    {
-      "firstname": "s",
-      "lastname": "d",
+      "firstname": "Mihaela",
+      "lastname": "Toader",
       "comment": "a",
+      "postId": 1,
+      "time": "17.07.2023",
+      "userID": 2,
+      "id": "1SCZi-r"
+    },
+    {
+      "firstname": "Andrei Stefan",
+      "lastname": "Toader",
+      "comment": "sd",
+      "postId": 1,
+      "time": "17.07.2023",
+      "userID": 1,
+      "id": "2kWSbD6"
+    },
+    {
+      "firstname": "Alexia",
+      "lastname": "Lapusan",
+      "comment": "sda",
+      "postId": 1,
+      "time": "17.07.2023",
+      "userID": 3,
+      "id": "eEAIxZg"
+    },
+    {
+      "firstname": "Andrei Stefan",
+      "lastname": "Toader",
+      "comment": "s",
       "postId": 3,
-      "time": "07.07.2023",
-      "id": "1Brkvss"
-    },
-    {
-      "comment": "asd",
-      "postId": 5,
-      "time": "09.07.2023",
-      "id": "7fuVrdc"
-    },
-    {
-      "comment": "dsa",
-      "postId": 6,
-      "time": "10.07.2023",
-      "id": "kSo37aF"
+      "time": "17.07.2023",
+      "userID": 1,
+      "id": "XRXB5kc"
     }
   ],
   "users": [
@@ -205,10 +219,18 @@
     {
       "firstName": "Mihaela",
       "lastName": "Toader",
-      "email": "t.mihaela66@Yahoo.com",
+      "email": "t.mihaela66@yahoo.com",
       "password": "12345678",
       "avatar": "assets/imgs/avatar.jpg",
       "id": 2
+    },
+    {
+      "firstName": "Alexia",
+      "lastName": "Lapusan",
+      "email": "malexia1908@icloud.com",
+      "password": "parolamea",
+      "avatar": "assets/imgs/avatar.jpg",
+      "id": 3
     }
   ]
 }

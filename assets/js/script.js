@@ -11,6 +11,12 @@ fetch("http://localhost:3000/speakers")
     });
   });
 
+const avatar = document.querySelector(".log-out");
+avatar.addEventListener("click", () => {
+  localStorage.clear();
+  window.location.href = "login.html";
+});
+
 //adding speaker's id on image
 function createSpeakerCard(speaker) {
   const speakersRow = document.querySelector(".speakers-row");

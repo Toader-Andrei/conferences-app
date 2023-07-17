@@ -2,9 +2,14 @@ const user = JSON.parse(localStorage.getItem("user"));
 if (!user) {
   window.location.href = "login.html";
 }
-console.log(user);
 
 const speakerId = JSON.parse(localStorage.getItem("speakerId"));
+
+const avatar = document.querySelector(".log-out");
+avatar.addEventListener("click", () => {
+  localStorage.clear();
+  window.location.href = "login.html";
+});
 
 fetch("http://localhost:3000/speakers/" + speakerId)
   .then((response) => response.json())
@@ -74,7 +79,6 @@ function createSpeakerPage(speaker) {
       const commentsContainer = document.querySelector(".comments");
 
       const commentCounter = document.querySelector(".comments-counter");
-      console.log(commentCounter, comments);
 
       commentCounter.innerText = comments.length || 0;
 
@@ -98,12 +102,6 @@ function clearForm() {
 }
 
 function createComment(comment) {
-  fetch("http://localhost:3000/users")
-    .then((response) => response.json())
-    .then((json) => {
-      console.log(json);
-      // adding first name and last name
-    });
   const commentSection = document.querySelector(".comments");
 
   const commentContainer = document.createElement("div");
@@ -116,7 +114,7 @@ function createComment(comment) {
   const profile = document.createElement("div");
   profile.setAttribute(
     "class",
-    "profile-img-name text-center m-2 max-witdh-150"
+    "profile-img-name text-center m-2 max-width-150"
   );
 
   const commentImage = document.createElement("img");
@@ -206,6 +204,7 @@ const submitBtn = document.querySelector(".submit");
 submitBtn.addEventListener("click", (event) => {
   event.preventDefault();
 
+  const commentInput = document.querySelector(".comments-input");
   const comment = document.querySelector(".comments-input").value;
   const date = new Date().toLocaleDateString("ro-RO");
 
@@ -218,6 +217,7 @@ submitBtn.addEventListener("click", (event) => {
 
   if (comment === "") {
     validationsLocation.appendChild(validation);
+    commentInput.classList.add("border", "border-danger");
     if (validation) {
       const validationMessage = document.querySelector(".validation-message");
       validationMessage.remove();
@@ -227,13 +227,17 @@ submitBtn.addEventListener("click", (event) => {
     const validationMessage = document.querySelector(".validation-message");
     if (validationMessage) {
       validationMessage.remove();
+      commentInput.classList.remove("border", "border-danger");
     }
     fetch("http://localhost:3000/comments", {
       method: "POST",
       body: JSON.stringify({
+        firstname: user.firstName,
+        lastname: user.lastName,
         comment: comment,
         postId: speakerId,
         time: date,
+        userID: user.id,
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8",

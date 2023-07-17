@@ -4,9 +4,6 @@ window.addEventListener("DOMContentLoaded", (e) => {
     window.location.href = "login.html";
   }
 
-  const checkInBtn = document.querySelector(".speechBtn");
-
-  console.log(user);
   //active cards from schedule
   const activeCard = document.querySelectorAll(".day-card");
   activeCard.forEach((event) => {
@@ -43,6 +40,12 @@ window.addEventListener("DOMContentLoaded", (e) => {
   });
 });
 
+const avatar = document.querySelector(".log-out");
+avatar.addEventListener("click", () => {
+  localStorage.clear();
+  window.location.href = "login.html";
+});
+
 const tueday = document.querySelector(".middle-container");
 tueday.addEventListener("click", () => {
   const speeches = document.querySelector(".speeches-container");
@@ -76,12 +79,10 @@ function createSpeechCard(speech) {
     .then((response) => response.json())
     .then((speech) => {
       if (speech.participants.includes(user.id)) {
-        console.log(">?");
-
-        document
-          .querySelector(".speechBtn")
-          .setAttribute("class", "btn btn-success cursor");
-        const participanting = document.querySelectorAll(".speechBtn");
+        const participanting = document.querySelector(".btn-" + speech.id);
+        participanting.setAttribute("class", "btn btn-success cursor");
+        participanting.innerText = "Joined";
+        participanting.removeAttribute("data-bs-toggle");
       }
     });
 
@@ -168,7 +169,7 @@ function createSpeechCard(speech) {
   const speechBtn = document.createElement("button");
   speechBtn.setAttribute(
     "class",
-    "btn btn-primary collapsed speechBtn " + speech.id
+    "btn btn-primary collapsed speechBtn btn-" + speech.id
   );
   speechBtn.setAttribute("type", "button");
   speechBtn.setAttribute("data-bs-toggle", "collapse");
@@ -216,29 +217,25 @@ function createSpeechCard(speech) {
 
   submitBtn.addEventListener("click", () => {
     const participateBtn = speechBtn;
-    participateBtn.innerText = "Participanting";
+    participateBtn.innerText = "Joined";
     speechBtn.removeAttribute("data-bs-toggle");
     speechBtn.setAttribute("class", "btn btn-success cursor");
 
     const user = JSON.parse(localStorage.getItem("user"));
-    console.log(speech.id, user.id);
 
     fetch("http://localhost:3000/speeches/" + speech.id)
       .then((response) => response.json())
       .then(() => {
-        const participants = speech.participants;
-        console.log(participants);
+        const participants = speech.participants || [];
         participants.push(user.id);
-        if (participants) {
-        } else {
-          fetch("http://localhost:3000/speeches/" + speech.id, {
-            method: "PATCH",
-            body: JSON.stringify({ participants: participants }),
-            headers: {
-              "Content-type": "application/json; charset=UTF-8",
-            },
-          }).then((response) => response.json());
-        }
+
+        fetch("http://localhost:3000/speeches/" + speech.id, {
+          method: "PATCH",
+          body: JSON.stringify({ participants: participants }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        }).then((response) => response.json());
       });
   });
 

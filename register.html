@@ -67,11 +67,12 @@
                   <label class="form-label">Your email</label>
                   <input
                     type="email"
-                    class="form-control form-control-lg email-value"
+                    id="email-value"
+                    class="form-control form-control-lg"
                     name="email"
                     placeholder="Your email"
                     aria-label="Your email"
-                    required=""
+                    required
                   />
                 </div>
 
@@ -79,8 +80,9 @@
                   <label class="form-label">Your First Name</label>
                   <input
                     type="text"
+                    id="firstName-value"
                     class="form-control form-control-lg firstName-value"
-                    name="firstName"
+                    name="first name"
                     placeholder="Your First Name"
                     aria-label="Your First Name"
                     required=""
@@ -91,8 +93,9 @@
                   <label class="form-label">Your Last Name</label>
                   <input
                     type="text"
+                    id="lastName-value"
                     class="form-control form-control-lg lastName-value"
-                    name="lastName"
+                    name="last name"
                     placeholder="Your Last Name"
                     aria-label="YYour Last Name"
                     required=""
@@ -103,41 +106,16 @@
                   <label class="form-label" for="signupModalFormSignupPassword"
                     >Password</label
                   >
-
-                  <div
-                    class="input-group input-group-merge"
-                    data-hs-validation-validate-class=""
-                  >
-                    <input
-                      type="text"
-                      class="js-toggle-password form-control form-control-lg password-value"
-                      name="password"
-                      id="signupModalFormSignupPassword"
-                      placeholder="8+ characters required"
-                      aria-label="8+ characters required"
-                      required=""
-                    />
-                  </div>
-                </div>
-
-                <div class="form-check mb-3">
                   <input
-                    type="checkbox"
-                    class="form-check-input"
-                    id="signupHeroFormPrivacyCheck"
-                    name="signupFormPrivacyCheck"
+                    type="text"
+                    id="password-value"
+                    class="js-toggle-password form-control form-control-lg"
+                    name="password"
+                    id="signupModalFormSignupPassword"
+                    placeholder="6+ characters required"
+                    aria-label="6+ characters required"
                     required=""
                   />
-                  <label
-                    class="form-check-label small"
-                    for="signupHeroFormPrivacyCheck"
-                  >
-                    By submitting this form I have read and acknowledged the
-                    <a href="./index.html">Privacy Policy</a></label
-                  >
-                  <span class="invalid-feedback"
-                    >Please accept our Privacy Policy.</span
-                  >
                 </div>
 
                 <div class="d-grid mb-3">

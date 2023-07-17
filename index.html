@@ -29,9 +29,23 @@
           <a class="nav-link ms-5" href="schedule.html">Schedule</a>
         </div>
         <div class="d-none d-sm-block">
-          <img src="/assets/imgs/avatar.jpg" alt="avatar" class="avatar" />
-          <a href="login.html">a</a>
-          <a href="register.html">b</a>
+          <div class="dropdown">
+            <button
+              class="btn btn-dropdown dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <img src="assets/imgs/avatar.jpg" alt="avatar" class="avatar" />
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <button class="dropdown-item log-out" type="button">
+                  Log Out
+                </button>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </nav>

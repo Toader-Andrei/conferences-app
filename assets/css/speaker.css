@@ -42,12 +42,15 @@ body {
     padding-bottom: 5px;
 }
 
-nav .avatar {
+nav .avatar-nav {
     width: 70px;
     height: 70px;
     object-fit: cover;
     border-radius: 50%;
-    cursor: not-allowed;
+}
+
+nav .btn-dropdown {
+    border: 0 !important;
 }
 
 main .banner-speaker {
@@ -81,6 +84,10 @@ main .comment-image {
 main .fa-trash:hover {
     color: red;
     cursor: pointer;
+}
+
+main .max-width-150 {
+    max-width: 150px;
 }
 
 footer  .footer-container {

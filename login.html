@@ -67,6 +67,7 @@
                 <div class="mb-4 form-validation">
                   <label class="form-label">Your email</label>
                   <input
+                    id="email-value"
                     type="email"
                     class="form-control form-control-lg email"
                     name="email"
@@ -77,23 +78,17 @@
                 </div>
 
                 <div class="mb-4 form-validation form-password">
-                  <div
-                    class="d-flex justify-content-between align-items-center"
-                  >
-                    <label class="form-label">Password</label>
-                  </div>
-                  <div class="input-group input-group-merge">
-                    <input
-                      type="password"
-                      class="form-control form-control-lg password"
-                      name="password"
-                      id="signupModalFormLoginPassword"
-                      placeholder="8+ characters required"
-                      aria-label="8+ characters required"
-                      required=""
-                      minlength="8"
-                    />
-                  </div>
+                  <label class="form-label">Password</label>
+                  <input
+                    type="password"
+                    id="password-value"
+                    class="form-control form-control-lg password"
+                    name="password"
+                    id="signupModalFormLoginPassword"
+                    placeholder="6+ characters required"
+                    aria-label="6+ characters required"
+                    required=""
+                  />
                 </div>
 
                 <div class="d-grid mb-3">

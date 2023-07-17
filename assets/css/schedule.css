@@ -68,7 +68,10 @@ nav .avatar {
     height: 70px;
     object-fit: cover;
     border-radius: 50%;
-    cursor: not-allowed;
+}
+
+nav .btn-dropdown {
+    border: 0 !important;
 }
 
 .schedule {
