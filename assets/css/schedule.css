@@ -23,18 +23,7 @@ body {
 
 .navbar { 
     font-size: 20px;
-}
-
-.sticky {
-    height: 80px !important;
-}
-
-.myshadow {
-    background-color: rgba(0, 0, 0, 0.9);
-    position: sticky;
-    top: 0;
-    height: 100px;
-    
+    background-color: rgba(0, 0, 0, 0.9) !important;
 }
 
 .nav-link {
@@ -63,15 +52,35 @@ body {
     max-width: 740px;
 }
 
-nav .avatar {
-    width: 70px;
-    height: 70px;
+
+nav .avatar-nav {
+    width: 50px;
+    height: 50px;
     object-fit: cover;
     border-radius: 50%;
 }
-
 nav .btn-dropdown {
     border: 0 !important;
+}
+
+nav .navbar-toggler {
+    padding: var(--bs-navbar-toggler-padding-y) var(--bs-navbar-toggler-padding-x);
+    font-size: var(--bs-navbar-toggler-font-size);
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.65);
+    background-color: #f9f9f9;
+    border: var(--bs-border-width) solid rgb(200 18 18 / 15%);
+    border-radius: var(--bs-navbar-toggler-border-radius);
+    transition: var(--bs-navbar-toggler-transition);
+}
+
+nav .nav-item {
+    display: flex;
+    align-items: center;
+}
+
+nav .dropdown-toggle::after {
+    display: none !important;
 }
 
 .schedule {

@@ -64,7 +64,6 @@ function addValidation() {
 
 function isFormValid() {
   const errors = document.querySelectorAll(".error");
-  console.log(errors);
   if (errors.length === 0) {
     return true;
   } else {

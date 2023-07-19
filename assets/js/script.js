@@ -3,6 +3,9 @@ if (!user) {
   window.location.href = "login.html";
 }
 
+const userName = document.querySelector(".user-name");
+userName.innerText = user.firstName + " " + user.lastName;
+
 fetch("http://localhost:3000/speakers")
   .then((response) => response.json())
   .then((user) => {
@@ -11,11 +14,11 @@ fetch("http://localhost:3000/speakers")
     });
   });
 
-const avatar = document.querySelector(".log-out");
-avatar.addEventListener("click", () => {
+function onLogoutClick(event) {
+  event.preventDefault();
   localStorage.clear();
-  window.location.href = "login.html";
-});
+  location.href = "login.html";
+}
 
 //adding speaker's id on image
 function createSpeakerCard(speaker) {

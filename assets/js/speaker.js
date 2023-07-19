@@ -1,15 +1,15 @@
 const user = JSON.parse(localStorage.getItem("user"));
 if (!user) {
-  window.location.href = "login.html";
+  location.href = "login.html";
 }
 
 const speakerId = JSON.parse(localStorage.getItem("speakerId"));
 
-const avatar = document.querySelector(".log-out");
-avatar.addEventListener("click", () => {
+function onLogoutClick(event) {
+  event.preventDefault();
   localStorage.clear();
-  window.location.href = "login.html";
-});
+  location.href = "login.html";
+}
 
 fetch("http://localhost:3000/speakers/" + speakerId)
   .then((response) => response.json())
@@ -23,6 +23,9 @@ function clearForm() {
 }
 
 function createSpeakerPage(speaker) {
+  const userName = document.querySelector(".user-name");
+  userName.innerText = user.firstName + " " + user.lastName;
+
   const speakerName = document.querySelector(".speaker-name");
   speakerName.innerText = speaker.name;
 
@@ -82,7 +85,7 @@ function createSpeakerPage(speaker) {
 
       commentCounter.innerText = comments.length || 0;
 
-      if (commentsContainer.length === 0) {
+      if (commentCounter.innerText == 0) {
         const emptyCommentsContainer = document.createElement("div");
         emptyCommentsContainer.classList.add("no-comments-warning");
 
@@ -91,7 +94,7 @@ function createSpeakerPage(speaker) {
         emptyMessage.innerText = "No comments!";
 
         emptyCommentsContainer.appendChild(emptyMessage);
-        commentSection.appendChild(emptyCommentsContainer);
+        commentsContainer.appendChild(emptyCommentsContainer);
       }
     });
 }
@@ -107,7 +110,7 @@ function createComment(comment) {
   const commentContainer = document.createElement("div");
   commentContainer.setAttribute(
     "class",
-    "d-flex aling-content-center m-4 border-radius p-2 bg-light shadow comment-container"
+    "d-flex aling-content-center mb-3 border-radius p-3 bg-light shadow comment-container"
   );
   commentContainer.setAttribute("data-id", comment.id);
 
@@ -147,55 +150,56 @@ function createComment(comment) {
   commentDate.setAttribute("class", "text-secondary");
   commentDate.innerText = comment.time;
 
-  commentNameContainer.appendChild(commentDate);
-
-  const iconsContainer = document.createElement("div");
-  iconsContainer.setAttribute("class", "align-self-center text-center");
-
-  const clearBtn = document.createElement("i");
-  clearBtn.setAttribute(
-    "class",
-    "fa-solid fa-trash align-self-center m-4 fs-4"
-  );
-
-  clearBtn.setAttribute("data-id", comment.id);
-
-  clearBtn.addEventListener("click", () => {
-    const commentId = document.querySelector(
-      '.fa-trash[data-id="' + comment.id + '"]'
-    );
-
-    fetch("http://localhost:3000/comments/" + comment.id, {
-      method: "DELETE",
-    }).then(() => {
-      commentContainer.remove(commentId);
-      const comments = document.querySelectorAll(".comment-container");
-
-      if (comments.length === 0) {
-        const emptyCommentsContainer = document.createElement("div");
-        emptyCommentsContainer.classList.add("no-comments-warning");
-
-        const emptyMessage = document.createElement("p");
-        emptyMessage.classList.add("text-center");
-        emptyMessage.innerText = "No comments!";
-
-        emptyCommentsContainer.appendChild(emptyMessage);
-        commentSection.appendChild(emptyCommentsContainer);
-      }
-      document.querySelector(".comments-counter").innerText =
-        +document.querySelector(".comments-counter").innerText - 1;
-    });
-  });
+  profile.appendChild(commentDate);
 
   commentContainer.appendChild(profile);
   commentTextContainer.appendChild(commentNameContainer);
   commentContainer.appendChild(commentTextContainer);
 
-  iconsContainer.appendChild(clearBtn);
-
-  commentContainer.appendChild(iconsContainer);
-
   commentSection.appendChild(commentContainer);
+
+  if (user.id === comment.userId) {
+    const iconsContainer = document.createElement("div");
+    iconsContainer.setAttribute("class", "align-self-start text-center");
+
+    const clearBtn = document.createElement("i");
+    clearBtn.setAttribute(
+      "class",
+      "fa-solid fa-trash align-self-center m-4 fs-4"
+    );
+
+    clearBtn.setAttribute("data-id", comment.id);
+
+    clearBtn.addEventListener("click", () => {
+      const commentId = document.querySelector(
+        '.fa-trash[data-id="' + comment.id + '"]'
+      );
+
+      fetch("http://localhost:3000/comments/" + comment.id, {
+        method: "DELETE",
+      }).then(() => {
+        commentContainer.remove(commentId);
+        const comments = document.querySelectorAll(".comment-container");
+
+        if (comments.length === 0) {
+          const emptyCommentsContainer = document.createElement("div");
+          emptyCommentsContainer.classList.add("no-comments-warning");
+
+          const emptyMessage = document.createElement("p");
+          emptyMessage.classList.add("text-center");
+          emptyMessage.innerText = "No comments!";
+
+          emptyCommentsContainer.appendChild(emptyMessage);
+          commentSection.appendChild(emptyCommentsContainer);
+        }
+        document.querySelector(".comments-counter").innerText =
+          +document.querySelector(".comments-counter").innerText - 1;
+      });
+    });
+    iconsContainer.appendChild(clearBtn);
+
+    commentContainer.appendChild(iconsContainer);
+  }
 }
 
 const commentsContainer = document.querySelector(".comments");
@@ -237,7 +241,7 @@ submitBtn.addEventListener("click", (event) => {
         comment: comment,
         postId: speakerId,
         time: date,
-        userID: user.id,
+        userId: user.id,
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8",

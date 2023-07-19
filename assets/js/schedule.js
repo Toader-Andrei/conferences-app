@@ -4,6 +4,9 @@ window.addEventListener("DOMContentLoaded", (e) => {
     window.location.href = "login.html";
   }
 
+  const userName = document.querySelector(".user-name");
+  userName.innerText = user.firstName + " " + user.lastName;
+
   //active cards from schedule
   const activeCard = document.querySelectorAll(".day-card");
   activeCard.forEach((event) => {
@@ -40,12 +43,6 @@ window.addEventListener("DOMContentLoaded", (e) => {
   });
 });
 
-const avatar = document.querySelector(".log-out");
-avatar.addEventListener("click", () => {
-  localStorage.clear();
-  window.location.href = "login.html";
-});
-
 const tueday = document.querySelector(".middle-container");
 tueday.addEventListener("click", () => {
   const speeches = document.querySelector(".speeches-container");
@@ -71,6 +68,12 @@ wednesday.addEventListener("click", () => {
       });
     });
 });
+
+function onLogoutClick(event) {
+  event.preventDefault();
+  localStorage.clear();
+  location.href = "login.html";
+}
 
 function createSpeechCard(speech) {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -125,33 +128,34 @@ function createSpeechCard(speech) {
 
   const speechDetails = document.createElement("p");
   speechDetails.setAttribute("class", "mb-0");
-  speechDetails.innerText =
-    "by " + speech.speakerName + " / CEO of " + speech.owner;
+  speechDetails.innerText = "by " + speech.speakerName;
 
   speechesDescriptionContainer.appendChild(speechDetails);
-
-  const peopleComming = document.createElement("span");
-  peopleComming.setAttribute("class", "m-1");
-  peopleComming.innerText = speech.participants.length;
-
-  if (speech.participants.length >= 2 && speech.participants.length <= 9) {
-    const warningMessage = document.createElement("h5");
-    warningMessage.innerText =
-      "Hurry up, only a few seats left for this speech!";
-
-    speechCard.appendChild(warningMessage);
-  } else if (speech.participants.length === 10) {
-    const warningMessage = document.createElement("h5");
-    warningMessage.innerText = "Maybe next time!";
-
-    speechCard.appendChild(warningMessage);
-  }
 
   const iconGroup = document.createElement("i");
   iconGroup.setAttribute("class", "fa-solid fa-people-group");
 
   speechesDescriptionContainer.appendChild(iconGroup);
+
+  const peopleComming = document.createElement("span");
+  peopleComming.setAttribute("class", "m-1 people");
+  peopleComming.innerText = speech.participants.length + " seat(s)";
+
   speechesDescriptionContainer.appendChild(peopleComming);
+
+  if (speech.participants.length >= 2 && speech.participants.length <= 9) {
+    const warningMessage = document.createElement("h5");
+    warningMessage.classList.add(".warning");
+    warningMessage.innerText =
+      "Hurry up, only a few seats left for this speech!";
+
+    speechesDescriptionContainer.appendChild(warningMessage);
+  } else if (speech.participants.length === 10) {
+    const warningMessage = document.createElement("h5");
+    warningMessage.innerText = "All seats have been reserved!";
+
+    speechesDescriptionContainer.appendChild(warningMessage);
+  }
 
   const speechDateAndLocationContainer = document.createElement("div");
   speechDateAndLocationContainer.setAttribute(
@@ -246,19 +250,20 @@ function createSpeechCard(speech) {
 
     const user = JSON.parse(localStorage.getItem("user"));
 
-    fetch("http://localhost:3000/speeches/" + speech.id)
+    const participants = speech.participants || [];
+    participants.push(user.id);
+
+    fetch("http://localhost:3000/speeches/" + speech.id, {
+      method: "PATCH",
+      body: JSON.stringify({ participants: participants }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
       .then((response) => response.json())
       .then(() => {
-        const participants = speech.participants || [];
-        participants.push(user.id);
-
-        fetch("http://localhost:3000/speeches/" + speech.id, {
-          method: "PATCH",
-          body: JSON.stringify({ participants: participants }),
-          headers: {
-            "Content-type": "application/json; charset=UTF-8",
-          },
-        }).then((response) => response.json());
+        const participantsComming = document.querySelector(".people");
+        participantsComming.innerText = participants.length + " seat(s)";
       });
   });
 

@@ -73,14 +73,20 @@
       "speakerName": "Daniel Hardman",
       "category": "Lawyer",
       "title": "Dealing with documents",
-      "owner": "Person Hardman Specter",
       "date": "28 July 2023",
       "location": "Cluj Arena, Cluj-Napoca, Romania",
       "image": "assets/imgs/10.jpg",
       "participants": [
         2,
+        5,
         1,
-        5
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10
       ]
     },
     {
@@ -88,7 +94,6 @@
       "speakerName": "Olga Russeti",
       "category": "Cheerleader",
       "title": "Dealing with popularity in high school",
-      "owner": "Groups Harvard Cheerleading Team",
       "date": "28 July 2023",
       "location": "Multipurpose Hall, Iasi, Romania",
       "image": "assets/imgs/11.jpg",
@@ -102,7 +107,6 @@
       "speakerName": "Scott Person & Sin Song Sang",
       "category": "Travelers",
       "title": "Dealing with couple quarrels",
-      "owner": "Travellers",
       "date": "29 July 2023",
       "location": "Cinema Florin Piersin, Cluj-Napoca, Romania",
       "image": "assets/imgs/12.jpg",
@@ -117,7 +121,6 @@
       "speakerName": "Rachel Zane",
       "category": "Photography",
       "title": "Dealing with copyrights",
-      "owner": "unsplash",
       "date": "29 July 2023",
       "location": "National Stadium, Bucuresti, Romania",
       "image": "assets/imgs/13.jpg",
@@ -130,18 +133,18 @@
       "speakerName": "Olivia Darby",
       "category": "Business woman",
       "title": "Dealing with stereotypical assumptions",
-      "owner": "USA Bank",
       "date": "30 July 2023",
       "location": "Cinema Florin Piersin, Cluj-Napoca, Romania",
       "image": "assets/imgs/10.jpg",
-      "participants": []
+      "participants": [
+        1
+      ]
     },
     {
       "id": 6,
       "speakerName": "William Henry",
       "category": "Business man",
       "title": "Dealing with mercenaries",
-      "owner": "Nike",
       "date": "30 July 2023",
       "location": "National Stadium, Bucuresti, Romania",
       "image": "assets/imgs/11.jpg",
@@ -167,7 +170,7 @@
       "comment": "das",
       "postId": 2,
       "time": "17.07.2023",
-      "userID": 1,
+      "userId": 1,
       "id": "L46cpSw"
     },
     {
@@ -176,17 +179,8 @@
       "comment": "a",
       "postId": 1,
       "time": "17.07.2023",
-      "userID": 2,
+      "userId": 2,
       "id": "1SCZi-r"
-    },
-    {
-      "firstname": "Andrei Stefan",
-      "lastname": "Toader",
-      "comment": "sd",
-      "postId": 1,
-      "time": "17.07.2023",
-      "userID": 1,
-      "id": "2kWSbD6"
     },
     {
       "firstname": "Alexia",
@@ -194,17 +188,26 @@
       "comment": "sda",
       "postId": 1,
       "time": "17.07.2023",
-      "userID": 3,
+      "userId": 3,
       "id": "eEAIxZg"
     },
     {
       "firstname": "Andrei Stefan",
       "lastname": "Toader",
-      "comment": "s",
-      "postId": 3,
-      "time": "17.07.2023",
-      "userID": 1,
-      "id": "XRXB5kc"
+      "comment": "a",
+      "postId": 1,
+      "time": "18.07.2023",
+      "userId": 1,
+      "id": "ZLlqHiZ"
+    },
+    {
+      "firstname": "Andrei Stefan",
+      "lastname": "Toader",
+      "comment": "d",
+      "postId": 5,
+      "time": "18.07.2023",
+      "userId": 1,
+      "id": "M-EJjFl"
     }
   ],
   "users": [

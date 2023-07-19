@@ -14,7 +14,6 @@ function clearValidation() {
 }
 
 function addValidation() {
-  const emailValue = document.querySelector(".email").value;
   document.querySelectorAll("input").forEach((input) => {
     if (!input.value) {
       const parent = input.parentElement;
@@ -35,25 +34,15 @@ function addValidation() {
         }
       }
       if (input.name === "password") {
-        fetch("http://localhost:3000/users?email=" + emailValue)
-          .then((response) => response.json())
-          .then((user) => {
-            if (input.value === user.password)
-              fetch("http://localhost:3000/users?email=" + emailValue)
-                .then((response) => response.json())
-                .then((users) => {
-                  if (users.length > 0) {
-                    if (users[0].password === passwordValue) {
-                      const parent = input.parentElement;
-                      const span = document.createElement("span");
-                      span.classList.add("error");
-                      span.innerText = "Please provide a valid email!";
-                      input.classList.add("border", "border-danger");
-                      parent.appendChild(span);
-                    }
-                  }
-                });
-          });
+        if (input.value.length < 6) {
+          const parent = input.parentElement;
+          const span = document.createElement("span");
+          span.classList.add("error");
+          span.innerText =
+            "Please provide a valid password longer than 6 characters!";
+          input.classList.add("border", "border-danger");
+          parent.appendChild(span);
+        }
       }
     }
   });
@@ -61,7 +50,6 @@ function addValidation() {
 
 function isFormValid() {
   const errors = document.querySelectorAll(".error");
-  console.log(errors);
   if (errors.length === 0) {
     return true;
   } else {
@@ -78,24 +66,30 @@ function onLoginClick(event) {
   addValidation();
 
   if (isFormValid()) {
-    console.log("merge");
     fetch("http://localhost:3000/users?email=" + emailValue)
       .then((response) => response.json())
       .then((users) => {
         if (users.length > 0) {
-          const parent =
-            document.querySelector("#password-value").parentElement;
-          const span = document.createElement("span");
-          span.classList.add("error");
-          span.innerText = "Please enter a valid password!";
-          document
-            .querySelector("#password-value")
-            .classList.add("border", "border-danger");
-          parent.appendChild(span);
-          if (users[0].password === passwordValue) {
+          if (users[0].password !== passwordValue) {
+            const input = document.querySelector(".password");
+            const parent = input.parentElement;
+            const span = document.createElement("span");
+            span.classList.add("error");
+            span.innerText = "Please provide a valid password!";
+            input.classList.add("border", "border-danger");
+            parent.appendChild(span);
+          } else {
             localStorage.setItem("user", JSON.stringify(users[0]));
             location.href = "index.html";
           }
+        } else {
+          const input = document.querySelector(".email");
+          const parent = input.parentElement;
+          const span = document.createElement("span");
+          span.classList.add("error");
+          span.innerText = "There is no user associated with this email!";
+          input.classList.add("border", "border-danger");
+          parent.appendChild(span);
         }
       });
   }
