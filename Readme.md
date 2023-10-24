@@ -1,15 +1,14 @@
-# WorldConfernces -
+# WorldConfernces -is a robust and user-friendly web application designed to enhance your conference experience
 
 ## Application description:
 
 It includes a numerous list of fuctionalities such as:
 
-- `:`
-- `:`
-- `:`
-- `:`
-- `:`
-- `:`
+- `Sing up:` Users can create an account.
+- `Log in:` Users can enter in there in their account.
+- `Speaker section:` Users can see more about their favorite speaker.
+- `Schedule section:` Users can can participate in the congresses of that day.
+- `Speaker Blog:` User can comment on how they thought the conference of the respective speaker and read more about that conference
 
 ## PRINT-SCREENS
 
@@ -35,7 +34,7 @@ It includes a numerous list of fuctionalities such as:
 
 ### 6.Speaker section:
 
-![cheese!](/public/speaker.png)
+![cheese!](/public/speakers.png)
 
 ### 7.Schedule + credit section:
 
@@ -57,3 +56,9 @@ It includes a numerous list of fuctionalities such as:
 ### 11.Comments section:
 
 ![cheese!](/public/comments.png)
+
+## Please see below from futher intructions.
+
+### `1. json-server --watch db.json`
+
+### `2. Use live server extension from Visual Studio Code`
