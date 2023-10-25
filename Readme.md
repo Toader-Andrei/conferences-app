@@ -57,7 +57,7 @@ It includes a numerous list of fuctionalities such as:
 
 ![cheese!](/public/comments.png)
 
-## Please see below from futher intructions.
+## Please see below for futher intructions.
 
 ### `1. json-server --watch db.json`
 
